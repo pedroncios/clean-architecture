@@ -56,9 +56,14 @@ Como o `CriarUsuario` também precisa de uma instância externa (`RepositorioDeU
 @Configuration
 public class UsuarioConfig {
 
+    //...
+
     @Bean
-    CriarUsuario criarUsuario(RepositorioDeUsuario repositorioDeUsuario) {
-        return new CriarUsuario(repositorioDeUsuario);
+    RepositorioDeUsuarioJpa criarRepositorioDeUsuarioJpa(UsuarioRepository repositorio, UsuarioEntityMapper mapper) {
+        return new RepositorioDeUsuarioJpa(repositorio, mapper);
     }
 }
 ```
+
+Já para a criação do `RepositorioDeUsuarioJpa` são necessárias instâncias de mais classes (`UsuarioRepository` e `UsuarioEntityMapper`).
+Isto gera um efeito cascata, nos obrigando a criar `Beans` de todas as classes necessárias, como pode ser visto na versão final da classe `UsuarioConfig`
