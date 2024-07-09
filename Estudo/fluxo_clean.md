@@ -1,4 +1,4 @@
-# Exemplo de fluxo
+# Exemplo de fluxo CLEAN
 
 O `Controller` seria o garçom, que recebe seu pedido (requisição HTTP) e o anota (processa os parâmetros de entrada).
 
